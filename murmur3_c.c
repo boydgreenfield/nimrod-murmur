@@ -7,7 +7,7 @@
 // compile and run any of them on any platform, but your performance with the
 // non-native version will be less than optimal.
 
-#include "murmur3.h"
+#include "murmur3_c.h"
 
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros

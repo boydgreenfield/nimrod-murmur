@@ -1,5 +1,5 @@
 # Import Murmurhash3 code and compile at same time as Nimrod code
-{.compile: "murmur3.c".}
+{.compile: "murmur3_c.c".}
 
 type
   TMurmurHashes* = array[0..1, int64]
