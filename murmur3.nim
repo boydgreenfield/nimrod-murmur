@@ -2,15 +2,15 @@
 {.compile: "murmur3_c.c".}
 
 type
-  TMurmurHashes* = array[0..1, int64]
+  MurmurHashes* = array[0..1, int64]
 
-proc raw_murmur_hash(key: cstring, len: int, seed: uint32, out_hashes: var TMurmurHashes): void {.
+proc raw_murmur_hash(key: cstring, len: int, seed: uint32, out_hashes: var MurmurHashes): void {.
   importc: "MurmurHash3_x64_128".}
 
-proc murmur_hash*(key: string, seed: uint32 = 0'u32): TMurmurHashes =
+proc murmur_hash*(key: string, seed: uint32 = 0'u32): MurmurHashes =
   ## Only implemented for strings at the moment. Returns an array of
   ## two 64-bit integers
-  var result: TMurmurHashes = [0'i64, 0'i64]
+  var result: MurmurHashes = [0'i64, 0'i64]
   raw_murmur_hash(key = key, len = key.len, seed = seed, out_hashes = result)
   return result
 
