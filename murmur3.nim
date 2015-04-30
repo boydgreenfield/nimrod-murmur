@@ -10,7 +10,7 @@ proc raw_murmur_hash(key: cstring, len: int, seed: uint32, out_hashes: var Murmu
 proc murmur_hash*(key: string, seed: uint32 = 0'u32): MurmurHashes =
   ## Only implemented for strings at the moment. Returns an array of
   ## two 64-bit integers
-  var result: MurmurHashes = [0'i64, 0'i64]
+  result = [0'i64, 0'i64]
   raw_murmur_hash(key = key, len = key.len, seed = seed, out_hashes = result)
   return result
 
